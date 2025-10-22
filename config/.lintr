@@ -1,0 +1,22 @@
+linters <- linters_with_defaults(
+  # Desativa o aviso de retorno implícito
+  implicit_return_linter = NULL, 
+  
+  # Define o comprimento máximo da linha para 120 caracteres
+  line_length_linter = line_length_linter(120L), 
+  
+  # Desativa o aviso de espaços ao redor de operadores infixos
+  infix_spaces_linter = NULL, 
+  
+  # Desativa o aviso sobre nomes de objetos (ex: snake_case)
+  object_name_linter = NULL, 
+  
+  # Desativa o aviso sobre código comentado
+  commented_code_linter = NULL, 
+  
+  # Desativa o aviso sobre complexidade ciclomática
+  cyclocomp_linter = NULL
+)
+
+# Define exclusões (opcional)
+exclusions <- list()

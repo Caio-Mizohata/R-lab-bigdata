@@ -1,0 +1,40 @@
+{
+    "name": "R Dev Container (language only)",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/app/src",
+    "remoteUser": "root",
+    "runArgs": [
+        "-v",
+        "${localWorkspaceFolder}:/app"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "r.rterm.linux": "R",
+                "r.lsp.path": "R",
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "Ikuyadeu.r",
+                "REditorSupport.r-lsp",
+                "REditorSupport.r",
+                "formulahendry.code-runner",
+                "usernamehw.errorlens",
+                "PKief.material-icon-theme",
+                "meganrogge.rainbow-csv",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode-remote.vscode-dev-containers",
+                "ms-ceintl.vscode-language-pack-pt-BR",
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-container",
+                "moyu.snapcode"
+            ]
+        }
+    },
+    "postCreateCommand": "R -e \"cat('R dev container ready\n')\""
+}

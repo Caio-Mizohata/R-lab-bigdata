@@ -1,0 +1,38 @@
+services:
+  # O nome do nosso serviço será 'r-dev'
+  r-dev:
+    # 1. Construção da Imagem
+    # Informa ao Compose para construir a imagem usando o Dockerfile
+    # no diretório atual ('.')
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # 2. Nome do Contêiner (Opcional, mas útil)
+    container_name: laboratorio_bigdata
+
+    # 3. Volumes (Persistência de Dados)
+    # Mapeia a pasta './src' do host para '/app/src' dentro do contêiner.
+    # Também pode mapear outras pastas se desejar (config, data).
+    volumes:
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./data:/app/data
+
+    # 4. Configuração de Execução
+    # 'stdin_open: true' (equivale a -i no docker run)
+    # 'tty: true' (equivale a -t no docker run)
+    # Isso é essencial para manter o terminal R interativo
+    # e permitir que você digite comandos.
+    stdin_open: true
+    tty: true
+
+    # 5. Sobrescrevendo o Comando (Opcional)
+    # Se quisermos garantir que ele sempre inicie o console R
+    # (embora já esteja no CMD do Dockerfile).
+    # command: R
+    # 6. Porta para httpgd (plots interativos)
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
