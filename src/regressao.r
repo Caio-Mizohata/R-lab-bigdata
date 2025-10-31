@@ -5,20 +5,22 @@ mpg_coluna <- mtcars$mpg
 wt_coluna  <- mtcars$wt
 
 plot(wt_coluna, mpg_coluna)
-    
+
 abline(lm(mpg ~ wt, data = mtcars), col = "red", lwd = 2)
 
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point(color = "steelblue") +
-  geom_smooth(method = "lm", se = TRUE, color = "darkred") +
-  labs(x = "Peso (wt)", y = "Milhas por Galão (mpg)")
+  geom_smooth(method = "lm", se = TRUE, color = "darkred")
+
+# Defina a média fora do ggplot para evitar avisos
+mean_mpg <- mean(mtcars$mpg)
 
 retas <- ggplot(mtcars, aes(x = wt, y = mpg)) + 
   geom_point(color = "steelblue") +
   geom_smooth(method = "lm", se = FALSE, color = "darkred") + 
-  geom_hline(yintercept = mean(mpg), 
-             linetype = "dashed", color = "blue") +
-  geom_segment(aes(xend = wt, yend = mean(mpg)),
+  geom_abline(intercept = mean_mpg, slope = 0,  # Usa a variável definida
+              linetype = "dashed", color = "blue") +
+  geom_segment(aes(xend = wt, yend = mean_mpg),  # Usa a variável definida
                color = "red", alpha = 0.5) +
   labs(x = "Peso (wt)", y = "Combustivel (mpg)")
 retas

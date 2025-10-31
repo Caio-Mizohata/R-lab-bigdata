@@ -32,7 +32,8 @@
                 "ms-ceintl.vscode-language-pack-pt-BR",
                 "ms-vscode-remote.remote-containers",
                 "ms-azuretools.vscode-container",
-                "moyu.snapcode"
+                "moyu.snapcode",
+                "tomoki1207.pdf"
             ]
         }
     },
