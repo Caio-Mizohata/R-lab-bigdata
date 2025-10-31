@@ -14,7 +14,8 @@ pkgs <- c(
     'lubridate',
     'stringr',
     'forcats',
-    'devtools'
+    'devtools',
+    'ggplot2'
 )
 
 # Instala os pacotes
